@@ -1,0 +1,34 @@
+{
+  "name": "@yhclt/utils",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "常用工具函数",
+  "author": {
+    "name": "Joetoo",
+    "email": "1570466620@qq.com"
+  },
+  "license": "ISC",
+  "keywords": [
+    "utils"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
