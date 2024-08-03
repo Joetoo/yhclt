@@ -1,0 +1,10 @@
+// BEM规范命名
+
+@forward '../node_modules/element-plus/theme-chalk/src/mixins/config.scss' with (
+  $namespace: 'yh'
+);
+
+$namespace: 'yh';
+$element-separator: '__';
+$modifier-separator: '--';
+$state-prefix: 'is-';
