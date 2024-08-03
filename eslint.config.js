@@ -16,6 +16,7 @@ export default antfu({
     'no-console': 'off',
     'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
     'node/prefer-global/process': 'off',
+    'unused-imports/no-unused-vars': 'off',
 
     // if-else
     // 组件name允许不是多个单词

@@ -1,0 +1,21 @@
+import { defineConfig } from 'vitepress'
+import { nav, sidebar } from './utils/index'
+// import { getNavData, getSidebarData } from './navSidebarUtil'
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
+  title: '萤火虫MIT-FE',
+  description: '前端物料库',
+  srcDir: 'src',
+  themeConfig: {
+    // logo: '/logo.png',
+    // 开启搜索
+    search: { provider: 'local' },
+    // https://vitepress.dev/reference/default-theme-config
+    nav,
+    sidebar,
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+    ],
+  },
+})
