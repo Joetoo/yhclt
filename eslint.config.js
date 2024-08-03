@@ -4,9 +4,12 @@ export default antfu({
   stylistic: {
     indent: 2, // 4, or 'tab'
     quotes: 'single', // or 'double'
+    semi: false,
+    jsx: true,
   },
   typescript: true,
   vue: true,
+  // unocss: true,
   lessOpinionated: true,
 
   rules: {
@@ -26,7 +29,24 @@ export default antfu({
     // 'vue/comment-directive': 'off',
     // 'vue/prefer-import-from-vue': 'off',
   },
-
+  formatters: {
+    /**
+     * Format CSS, LESS, SCSS files, also the `<style>` blocks in Vue
+     * By default uses Prettier
+     */
+    css: true,
+    /**
+     * Format HTML files
+     * By default uses Prettier
+     */
+    html: true,
+    /**
+     * Format Markdown files
+     * Supports Prettier and dprint
+     * By default uses Prettier
+     */
+    markdown: 'prettier',
+  },
   ignores: [
     '**/node_modules',
     'pnpm-lock.yaml',
