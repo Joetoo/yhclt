@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": "./src", // 将src目录作为根目录
+    "rootDir": "src", // 基础路径
+    "module": "ESNext",
+    "moduleResolution": "node", // 模块解析方式
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "outDir": "dist", // 输出到dist目录
+    "esModuleInterop": true // 模块转换
+  },
+  "include": ["src"]
+}
