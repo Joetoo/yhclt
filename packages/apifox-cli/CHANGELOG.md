@@ -1,5 +1,11 @@
 # apifox-cli 更新日志
 
+## 1.0.6
+
+### Patch Changes
+
+- yhc模板生成方式更新，取消web和wx区分
+
 ## 1.0.5
 
 ### Patch Changes

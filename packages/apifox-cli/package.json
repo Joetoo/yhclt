@@ -1,7 +1,7 @@
 {
   "name": "@yhclt/apifox-cli",
   "type": "module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "apifox转换成apifox-interface.ts和api接口函数",
   "author": {
     "name": "Joetoo",
