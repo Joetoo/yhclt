@@ -29,7 +29,7 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "scripts": {
-    "dev": "unbuild --stub",
+    "dev": "tsc --watch",
     "build": "unbuild",
     "build:out": "unbuild --out",
     "typecheck": "tsc --noEmit"

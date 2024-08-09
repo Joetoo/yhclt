@@ -6,7 +6,5 @@ const instructions = [
   `第三步:如果生成的文件有问题可以跟后端确认 apifox 文档是否规范`,
 ]
 export default async function use() {
-  for (const instruction of instructions) {
-    info(instruction)
-  }
+  instructions.forEach(instruction => info(instruction))
 }

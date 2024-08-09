@@ -9,22 +9,52 @@ export interface ApiFoxConfig {
   template?: Template
 }
 
-export type defaultApifoxConfig = Partial<ApiFoxConfig>
-
-export interface FolderItem {
-  path: string
-  pathArrEn: string[]
-  pathArr: string[]
-  nameEn: string
+interface Folder {
   id: number
   name: string
   docId: number
   parentId: number
   projectBranchId: number
-  type: 'http'
+  shareSettings: null
+  type: string
 }
 
-export interface ProcessedFolderItem extends Omit<FolderItem, 'path'> {
+export interface FolderListItem {
+  path: string
+  pathArr: Array< string >
+  id: number
+  name: string
+  docId: number
+  parentId: number
+  projectBranchId: number
+  shareSettings: null
+  type: string
+}
+
+export interface ApiInfoListItem {
+  id: number
+  name: string
+  type: string
+  method: string
+  path: string
+  folderId: number
+  tags: Array< unknown >
+  status: string
+  responsibleId: number
+  customApiFields: CustomApiFields$1Type
+}
+
+export interface ApiDetailFolder {
+  key: string
+  type: string
+  name: string
+  children: Array< Array< null > | null | null | null | null | null | null | null | null | null >
+  folder: Folder
+}
+
+export type defaultApifoxConfig = Partial<ApiFoxConfig>
+
+export interface ProcessedFolderItem extends Omit<FolderListItem, 'path'> {
   interfacesContentPath: string
   apiFunPath: string
   interfacesContent: string
@@ -34,9 +64,13 @@ export interface ProcessedFolderItem extends Omit<FolderItem, 'path'> {
   apiNames: any[]
 }
 
+export type CreaterOptionsType = 'api' | 'module' | 'all'
+
 export interface createrOptions {
-  type?: 'api' | 'module' | 'all'
+  type?: CreaterOptionsType
   prefixPath?: string
 }
+
+export interface SelectChoicesFolderIds { choicesFolderIds: number[], choicesApis?: number[] }
 // import { type Method } from 'axios'
 export type HttpMethodStrategy = (apiName?: string, path?: string, folderInfo?, item?) => string

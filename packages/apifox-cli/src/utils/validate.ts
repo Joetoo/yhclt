@@ -3,8 +3,10 @@
  * @Description: 格式化函数
  */
 
-export function validateType(type: string): boolean {
-  return ['api', 'module', 'all'].includes(type as string)
+import type { CreaterOptionsType } from '../types/index'
+
+export function validateType(type: CreaterOptionsType): boolean {
+  return ['api', 'module', 'all'].includes(type)
 }
 
 export function formatPrefixPath(prefixPath?: string): string {
@@ -17,7 +19,7 @@ export function formatPrefixPath(prefixPath?: string): string {
  * @return {*} 如果是，则移除 'Async' 并添加 'API',否则返回原始字符串
  */
 export const convertAsyncToApi = (str: string) => {
-  return str.endsWith('Async') ? `${str.slice(0, -'Async'.length)}API` : str
+  return str.endsWith('Async') ? `${str.slice(0, -'Async'.length)}API` : `${str}API`
 }
 
 // 首字母大写

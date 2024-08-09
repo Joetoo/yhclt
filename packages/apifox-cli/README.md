@@ -30,8 +30,6 @@ module.exports = {
 }
 ```
 
-<a name="mPVTi"></a>
-
 ## 生成代码
 
 ```bash
@@ -48,13 +46,10 @@ apifox-cli create --type=module --prefixPath=testPrefix
 apifox-cli create --type=api
 ```
 
-<a name="Enxgo"></a>
-
 ## 查看帮助
 
 ```javascript
 // 执行：apifox-cli help 查看帮助文档
-// 在项目中配置 eslint 忽略文件
 ```
 
 <a name="MJeSI"></a>
@@ -64,8 +59,3 @@ apifox-cli create --type=api
 - 确保在 apifox.config.cjs 中填写正确的 projectId，这通常可以在 APIFOX 平台上找到。
 - 如果接口文档中有授权信息，需要在配置文件中正确设置 Authorization 字段。
 - 使用 --prefixPath 参数可以为生成的接口路径添加统一的前缀，这在某些项目结构中可能很有用。
-  <a name="NtNzl"></a>
-
-## 补充
-
-- 如果您有其他问题或需要进一步的帮助，请随时提问 1570466620@qq.com

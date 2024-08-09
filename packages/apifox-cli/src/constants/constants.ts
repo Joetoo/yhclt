@@ -24,7 +24,7 @@ export const HasReqBodyMethods = ['post', 'put', 'patch', 'delete']
 const initTemplate = `
 module.exports = {
   module: 'web', // web | wx
-  projectId: 2778740, // (项目id 只支持一个projectId)
+  projectId: 1234567, // (项目id 只支持一个projectId)
   output: 'src/api',
   importHttp: '',
   template: 'default',

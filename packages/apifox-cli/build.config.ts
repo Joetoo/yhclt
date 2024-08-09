@@ -7,10 +7,8 @@ export default defineBuildConfig({
   entries: ['src/index'],
   // 每次构建之前，输出目录（outDir）将被清空
   clean: true,
-  // Generates .d.ts declaration file
   declaration: true,
   sourcemap: enableOut,
-  // Change outDir, default is 'dist'
   outDir: enableOut ? 'out' : 'dist',
   rollup: {
     // emitCJS: true,

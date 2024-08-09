@@ -3,30 +3,17 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import chalk from 'chalk'
 import ora from 'ora'
-import { pinyin } from 'pinyin-pro'
 import { DEFAULT_IMPORT_HTTP } from '../constants/constants.js'
 import { createHttp } from '../http/index.js'
 import { apifoxTemplateFn } from '../template/default/index.js'
-import type { ApiFoxConfig, FolderItem, ProcessedFolderItem } from '../types/index.js'
+import type { ApiFoxConfig, FolderListItem, ProcessedFolderItem } from '../types/index.js'
+import { flattenFolders } from './dataFormat.js'
 import { error } from './message.js'
 import { capitalize, convertAsyncToApi } from './validate.js'
 
 const spinner = ora()
 
 const require = createRequire(import.meta.url)
-
-// 中文转拼音
-export const cnToPinyin = (cn: string) => {
-  const pyArr = pinyin(cn, { toneType: 'none', type: 'array' })
-
-  return pyArr.reduce((result, curr, index) => {
-    if (curr === '/') {
-      return result
-    } else {
-      return result + (index > 0 ? curr.toUpperCase() : curr)
-    }
-  }, '')
-}
 
 // 获取项目apis文件目录
 export const fetchFolderList = async (apiFoxConfig: ApiFoxConfig) => {
@@ -36,46 +23,12 @@ export const fetchFolderList = async (apiFoxConfig: ApiFoxConfig) => {
   const res = await http.get(apiTreeList)
   const folderArr = res.data?.data || []
 
-  // eslint-disable-next-line ts/no-use-before-define
-  const { folderList, apiList } = flattenFolders(folderArr, [])
-  // console.log('fetchFolderList',folderList, apiList)
+  const { folderList, apiList } = flattenFolders(folderArr)
+
   return { folderList, apiList }
 }
 
-// 展平文件夹
-export const flattenFolders = (arr, pathArr: string[]) => {
-  const folderList = []
-  const apiList = []
-
-  for (const item of arr) {
-    if (item.type !== 'apiDetailFolder') {
-      apiList.push({ ...item.api })
-      continue
-    }
-
-    const nameEn = cnToPinyin(item.name)
-    const pathArrEn = pathArr.concat(nameEn)
-    const path = pathArrEn.join('/')
-
-    const resItem = {
-      path,
-      pathArrEn,
-      pathArr: [...pathArr, item.name],
-      nameEn,
-      ...item.folder,
-    }
-    folderList.push(resItem)
-
-    if (item.children) {
-      const { folderList: childFolderList, apiList: childApiList } = flattenFolders(item.children, pathArrEn)
-      folderList.push(...childFolderList)
-      apiList.push(...childApiList)
-    }
-  }
-  return { folderList, apiList }
-}
-
-// fetchApiDetails
+// 获取ApisDetails
 export const fetchApiDetails = async (apiFoxConfig: ApiFoxConfig) => {
   const http = createHttp(apiFoxConfig)
   const apiDetailsUrl = '/api-details?locale=en-US'
@@ -85,16 +38,8 @@ export const fetchApiDetails = async (apiFoxConfig: ApiFoxConfig) => {
 }
 
 // 根据模式添加不同的导入模块
-export const getApiFileImportContent = (deep: number, createModule, importHttp: string) => {
-  const relativePath = deep === 0 ? './' : '../'.repeat(deep)
-
+export const getApiFileImportContent = (importHttp: string) => {
   const specificImports = importHttp || DEFAULT_IMPORT_HTTP
-
-  // import qs from 'qs'
-  // import type { IConfig } from '@galaxy/swrv'
-  // import type { AxiosRequestConfig } from 'axios'
-  // import { useMutation, useSWRGet } from '${relativePath}swrv'
-
   const ImportContentStart = specificImports
 
   return ImportContentStart.trim()
@@ -102,11 +47,11 @@ export const getApiFileImportContent = (deep: number, createModule, importHttp: 
 
 // generateFolders
 export const generateFolders = (
-  folderList: FolderItem[],
+  folderList: FolderListItem[],
   parentDir: string,
-  createModule: string,
   importHttp: string,
 ): ProcessedFolderItem[] => {
+  // 创建文件夹
   if (!existsSync(parentDir)) {
     mkdirSync(`${parentDir}`, { recursive: true })
   }
@@ -114,14 +59,17 @@ export const generateFolders = (
   return folderList.map((item) => {
     const itemDirPath = `${parentDir}/${item.path}`
     mkdirSync(itemDirPath, { recursive: true })
-    const interfacesContentPath = `${itemDirPath}/interface.ts`
+    // 创建接口文件
     const apiFunPath = `${itemDirPath}/apifox.ts`
-    const apiFunImportContent = getApiFileImportContent(item.pathArr.length + 1, createModule, importHttp)
+    // 创建接口所需类型文件
+    const interfacesContentPath = `${itemDirPath}/interface.ts`
+
+    const apiFunImportContent = getApiFileImportContent(importHttp)
     // 追加自定义字段
     const processedItem: ProcessedFolderItem = {
       ...item,
-      interfacesContentPath,
       apiFunPath,
+      interfacesContentPath,
       interfacesContent: '',
       apiFunContent: '',
       apiFunImportContent,
@@ -131,13 +79,6 @@ export const generateFolders = (
 
     return processedItem
   })
-}
-
-export const findFolderById = (
-  folderList: ProcessedFolderItem[],
-  folderId: number,
-): ProcessedFolderItem | undefined => {
-  return folderList.find(folder => folder.id === folderId)
 }
 
 // 生成API名称
