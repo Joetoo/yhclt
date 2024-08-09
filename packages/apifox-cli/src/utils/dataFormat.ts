@@ -70,7 +70,7 @@ export const selectedAPIs = async (type: CreaterOptionsType, config: ApiFoxConfi
     return isMatched && isMatchedById
   })
 
-  console.log('🚀 ~ create ~ apiArr:', ApiArr)
+  // console.log('🚀 ~ create ~ apiArr:', ApiArr)
   return ApiArr
 }
 

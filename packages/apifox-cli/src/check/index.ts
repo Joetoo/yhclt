@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import path from 'node:path'
-import { defaultConfig, supportedModules } from '../constants/constants.js'
+import { defaultConfig } from '../constants/constants.js'
 import type { ApiFoxConfig } from '../types/index.js'
 import { error } from '../utils/message.js'
 
@@ -13,11 +13,6 @@ const applyDefaultConfig = (config: ApiFoxConfig) => {
     // eslint-disable-next-line no-prototype-builtins
     if (!config.hasOwnProperty(key) || !config[key]) {
       config[key] = defaultConfig[key]
-    }
-
-    if (key === 'module' && !supportedModules.includes(config.module)) {
-      console.error(`配置项"module"的值"${config.module}"无效，应为${supportedModules.join(' 或 ')}`)
-      process.exit(1)
     }
   })
 }

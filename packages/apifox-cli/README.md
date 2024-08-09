@@ -21,7 +21,6 @@ npm uninstall -g @yhclt/apifox-cli
 ```javascript
 // 在项目根目录运行 apifox-cli init 命令来生成配置文件 apifox.config.cjs
 module.exports = {
-  module: 'web', // web | wx
   projectId: number, // 访问https://app.apifox.com/main 查看你的项目id
   output: 'src/api', // 输出目录
   importHttp: `import { http } from '@/utils/http'`,

@@ -15,7 +15,7 @@ import {
   objectTypeFn,
 } from '../template/default/index.js'
 import { filterFoldersByChoiceIds, findFolderById, selectedAPIs } from '../utils/dataFormat.js'
-import { Module, Template } from '../types/enum.js'
+import { Template } from '../types/enum.js'
 import type { ApiFoxConfig, ApiInfoListItem, CreaterOptionsType, FolderListItem, SelectChoicesFolderIds, createrOptions } from '../types/index'
 import {
   convertTypeOnly,
@@ -30,18 +30,12 @@ import { loading } from '../utils/loading.js'
 import { error } from '../utils/message.js'
 import { capitalize, formatPrefixPath, validateType } from '../utils/validate.js'
 
-import { defaultWebApiFn, defaultWxApiFn } from '../template/default/generateApi.js'
-import { yhcWebApiFn, yhcWxApiFn } from '../template/yhc/generateApi.js'
+import { defaultWebApiFn } from '../template/default/generateApi.js'
+import { yhcApiFn } from '../template/yhc/generateApi.js'
 
 const templateModuleImportMap = {
-  [Template.Default]: {
-    [Module.Web]: defaultWebApiFn,
-    [Module.Wx]: defaultWxApiFn,
-  },
-  [Template.YHC]: {
-    [Module.Web]: yhcWebApiFn,
-    [Module.Wx]: yhcWxApiFn,
-  },
+  [Template.Default]: defaultWebApiFn,
+  [Template.YHC]: yhcApiFn,
 }
 
 export const selectChoicesFolderIds = async (type: CreaterOptionsType, folderList: FolderListItem[], apiInfoList: ApiInfoListItem[]): Promise<SelectChoicesFolderIds> => {
@@ -63,7 +57,7 @@ export default async function create({ type, prefixPath }: createrOptions) {
 
   // 获取配置信息并确保其存在
   const { config } = ((await getConfig()) as { config: ApiFoxConfig, exists: boolean }) ?? {}
-  const { module: createModule, output, importHttp, template } = config
+  const { output, importHttp, template } = config
 
   // 格式化 prefixPath 参数
   prefixPath = formatPrefixPath(prefixPath)
@@ -72,10 +66,8 @@ export default async function create({ type, prefixPath }: createrOptions) {
   const cwd = process.cwd()
   const distPath = path.resolve(cwd, output)
 
-  // 定义加载提示文本
-  const loadingText = '获取apifox文档数据'
   // 加载文档数据（全部）
-  const { folderList, apiList: apiInfoList } = await loading(loadingText, () => fetchFolderList(config))
+  const { folderList, apiList: apiInfoList } = await loading('获取apifox文档数据', () => fetchFolderList(config))
   // 根据 type 参数选择要处理的文件夹 ID 列表
   const { choicesFolderIds, choicesApis } = await selectChoicesFolderIds(type, folderList, apiInfoList)
   // 过滤并保留与 choicesFolderIds 匹配的文件夹列表
@@ -109,9 +101,14 @@ export default async function create({ type, prefixPath }: createrOptions) {
 
     folderInfo.apiNames.push({ apiName, name: item.name })
 
-    // get parameters-query 处理get带参数的queryParams
-    // 路径参数的ts类型已在请求方法中处理,只需处理查询参数query的ts类型,
-    // 有请求参数才会生成接口类型
+    /** ------ 处理接口入参ts类型 start ------ */
+
+    /**
+     * Get parameters-query 处理get带参数的queryParams
+     * 路径参数的ts类型已在请求方法中处理,只需处理查询参数query的ts类型,
+     * 有请求参数才会生成接口类型
+     */
+
     const query = item.parameters?.query || []
 
     if (query.length !== 0) {
@@ -119,7 +116,7 @@ export default async function create({ type, prefixPath }: createrOptions) {
       folderInfo.interfacesContent += interfaceTemplateFn({ list, apiName })
     }
 
-    // 处理非GET请求体,不同的参数类型,从不同的地方获取入参,获取入参ts类型
+    /** 处理非GET请求体,不同的参数类型,从不同的地方获取入参,获取入参ts类型 */
     if (HasReqBodyMethods.includes(item.method)) {
       const requestBody = item.requestBody
 
@@ -155,6 +152,8 @@ export default async function create({ type, prefixPath }: createrOptions) {
       }
     }
 
+    /** ------ 处理接口入参ts类型 end ------ */
+
     /** ------ 处理response ------ */
     const response = item?.responses?.find(r => r.code === 200) // 只处理 200 状态码
     const jsonSchema = response?.jsonSchema ?? {}
@@ -187,7 +186,7 @@ export default async function create({ type, prefixPath }: createrOptions) {
     }
 
     /** ------ 生成api function start ------ */
-    const generateApiFun = templateModuleImportMap[template]?.[createModule]
+    const generateApiFun = templateModuleImportMap[template]
 
     const apiFun = generateApiFun(apiName, path, folderInfo, item)
 

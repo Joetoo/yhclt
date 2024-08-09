@@ -1,7 +1,6 @@
-import type { Module, Template } from './enum'
+import type { Template } from './enum'
 
 export interface ApiFoxConfig {
-  module?: Module
   projectId: string | number
   Authorization: string
   output?: string
