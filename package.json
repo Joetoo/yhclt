@@ -14,6 +14,11 @@
   },
   "scripts": {
     "dev": "pnpm -C play dev",
+    "apifox:dev": "pnpm --dir packages/apifox-cli dev",
+    "apifox:build": "pnpm --dir packages/apifox-cli build",
+    "apifox:build:out": "pnpm --dir packages/apifox-cli build:out",
+    "ui:dev": "pnpm --dir packages/ui dev",
+    "ui:build": "pnpm --dir packages/ui build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",
@@ -40,7 +45,8 @@
     "@yhclt/hooks": "workspace:^",
     "@yhclt/theme-chalk": "workspace:^",
     "@yhclt/ui": "workspace:^",
-    "@yhclt/utils": "workspace:^"
+    "@yhclt/utils": "workspace:^",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.24.0",
