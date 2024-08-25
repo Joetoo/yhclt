@@ -82,7 +82,7 @@ export const generateFolders = (
 }
 
 // 生成API名称
-export const generateApiName = (apiUrl: string, method: string) => {
+export const generateApiName = (apiUrl: string) => {
   // 解析url  /Udx/Master/IMasterUserService/QueryShopListAsync post
   if (!apiUrl) { return error('apiUrl is not defined or is null') }
   // 获取url的最后一项 ['/QueryShopListAsync']
@@ -94,7 +94,7 @@ export const generateApiName = (apiUrl: string, method: string) => {
   const lastRouteParamMatch = apiUrl.match(/\{[a-z0-9]+\}$/i)?.[0]
   const routeParam = lastRouteParamMatch ? capitalize(lastRouteParamMatch.replace(/[{|}]/g, '')) : ''
   // 构建API名称
-  const apiName = convertAsyncToApi([method, ...urlBlocks].join(''))
+  const apiName = convertAsyncToApi([...urlBlocks].join(''))
   // 添加路由参数（如果有）
   return apiName + (routeParam ? `_${routeParam}` : '')
 }

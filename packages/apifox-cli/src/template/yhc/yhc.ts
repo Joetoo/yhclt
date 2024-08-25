@@ -4,26 +4,15 @@ import Handlebars from 'handlebars'
 const noQueryAndPathParameters = `
 /** {{name}} */
 export const {{ apiName }} = () => {
-  return http<{{apiName}}Res>({
-    url: '/one/service',
-    method: '{{method}}',
-    data: {
-      Router: '{{path}}',
-    },
-  })
+  return http.Get<{{apiName}}Res>('{{path}}')
 }
 `
 /** GET 有入参 */
 const GetQueryParamsTemplate = `
 /** {{name}} */
 export const {{ apiName }} = (params: {{apiName}}Query) => {
-  return http<{{apiName}}Res>({
-    url: '/one/service',
-    method: '{{method}}',
-    data: {
-      Router: '{{path}}',
-      ObjectData: params,
-    },
+  return http.Get<{{apiName}}Res>('{{path}}', {
+    ObjectData: params,
   })
 }
 `
@@ -32,27 +21,16 @@ export const {{ apiName }} = (params: {{apiName}}Query) => {
 const PostTemplate = `
 /** {{name}} */
 export const {{ apiName }} = () => {
-  return http<{{apiName}}Res>({
-    url: '/one/service',
-    method: '{{method}}',
-    data: {
-      Router: '{{path}}',
-    },
-  })
+  return http.Post<{{apiName}}Res>('{{path}}')
 }
 `
 
-/** POST 无入参 */
+/** POST 有入参 */
 const PostQueryDataTemplate = `
 /** {{name}} */
 export const {{ apiName }} = (data: {{apiName}}Req) => {
-  return http<{{apiName}}Res>({
-    url: '/one/service',
-    method: '{{method}}',
-    data: {
-      Router: '{{path}}',
-      ObjectData: data,
-    },
+  return http.Post<{{apiName}}Res>('{{path}}', {
+    ObjectData: data,
   })
 }
 `

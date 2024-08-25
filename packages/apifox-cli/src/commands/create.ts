@@ -96,7 +96,7 @@ export default async function create({ type, prefixPath }: createrOptions) {
 
     /** 找重复 end */
 
-    const apiName = generateApiName(path, item.method)
+    const apiName = generateApiName(path)
     if (!apiName) { return }
 
     folderInfo.apiNames.push({ apiName, name: item.name })
