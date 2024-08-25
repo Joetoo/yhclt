@@ -1,13 +1,17 @@
 {
   "name": "@yhclt/apifox-cli",
   "type": "module",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "apifox转换成apifox-interface.ts和api接口函数",
   "author": {
     "name": "Joetoo",
     "email": "1570466620@qq.com"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Joetoo/yhclt"
+  },
   "keywords": [
     "apifox",
     "自动生成前端所需接口"

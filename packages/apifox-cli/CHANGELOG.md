@@ -1,5 +1,11 @@
 # apifox-cli 更新日志
 
+## 1.0.7
+
+### Patch Changes
+
+- 适配alova
+
 ## 1.0.6
 
 ### Patch Changes
