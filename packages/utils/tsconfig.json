@@ -1,6 +1,12 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": {},
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "declaration": true
+  },
   "include": ["src"],
   "exclude": ["node_modules"]
 }
