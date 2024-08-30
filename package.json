@@ -4,9 +4,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "author": "Joetoo",
+  "author": {
+    "name": "Joetoo",
+    "github": "https://github.com/Joetoo"
+  },
   "license": "ISC",
-  "keywords": [],
+  "keywords": ["pnpm", "monorepo"],
   "main": "index.js",
   "engines": {
     "node": ">=20",
