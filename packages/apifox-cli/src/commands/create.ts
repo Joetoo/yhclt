@@ -30,11 +30,11 @@ import { loading } from '../utils/loading.js'
 import { error } from '../utils/message.js'
 import { capitalize, formatPrefixPath, validateType } from '../utils/validate.js'
 
-import { defaultWebApiFn } from '../template/default/generateApi.js'
+import { defaultApiFn } from '../template/default/generateApi.js'
 import { yhcApiFn } from '../template/yhc/generateApi.js'
 
 const templateModuleImportMap = {
-  [Template.Default]: defaultWebApiFn,
+  [Template.Default]: defaultApiFn,
   [Template.YHC]: yhcApiFn,
 }
 

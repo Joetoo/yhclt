@@ -2,8 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ES2022",
-    // "baseUrl": "./src", // 基础路径
-    "rootDir": "src", // 将src目录作为根目录
+    "baseUrl": "./src", // 基础路径
+    // "rootDir": "src", // 将src目录作为根目录
     "module": "ES2022",
     "moduleResolution": "Bundler",
     // "strict": true,

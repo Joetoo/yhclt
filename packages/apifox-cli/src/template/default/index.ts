@@ -3,48 +3,19 @@ import Handlebars from 'handlebars'
 // 无任何参数
 const noQueryAndPathParameters = `
 /** {{name}} */
-export const {{ apiName }} = () => http<{{apiName}}Res>('{{path}}','{{method}}')
-`
-
-const noQueryAndPathParametersWx = `
-/** {{name}} */
-export const {{ apiName }} = () => http<{{apiName}}Res>({
-  url: '{{path}}',
-  method: '{{method}}',
-})
+export const {{ apiName }} = () => http.{{method}}<{{apiName}}Res>('{{path}}')
 `
 
 // 并且最后一个入参不需要逗号
 const GetPathParamsTemplate = `
 /** {{name}} */
-export const {{ apiName }} = ({{#each list}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) => http<{{apiName}}Res>(\`{{path}}\`,'{{method}}')
-`
-
-const GetPathParamsTemplateWx = `
-/** {{name}} */
-export const {{ apiName }} = ({{#each list}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) => {
-  return http<{{apiName}}Res>({
-    url: \`{{path}}\`,
-    method: '{{method}}',
-  })
-}
+export const {{ apiName }} = ({{#each list}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) => http.{{method}}<{{apiName}}Res>(\`{{path}}\`)
 `
 
 const GetQueryParamsTemplate = `
 /** {{name}} */
 export const {{ apiName }} = (params: {{apiName}}Query) => {
-  return http<{{apiName}}Res>('{{path}}','{{method}}',params)
-}
-`
-
-const GetQueryParamsTemplateWx = `
-/** {{name}} */
-export const {{ apiName }} = (data: {{apiName}}Query) => {
-  return http<{{apiName}}Res>({
-    url: '{{path}}',
-    method: '{{method}}',
-    data,
-  })
+  return http.{{method}}<{{apiName}}Res>('{{path}}',params)
 }
 `
 
@@ -52,9 +23,8 @@ export const {{ apiName }} = (data: {{apiName}}Query) => {
 const GetBodyTemplate = `
 /** {{name}} */
 export const {{ apiName }} = ({{#each list}}{{name}}: {{type}},{{/each}} data: {{apiName}}Req) => {
-  return http<{{apiName}}Res>({
+  return http.{{method}}<{{apiName}}Res>({
     url: \`{{path}}\`,
-    method: '{{method}}',
     data,
   })
 }
@@ -62,101 +32,53 @@ export const {{ apiName }} = ({{#each list}}{{name}}: {{type}},{{/each}} data: {
 
 const PostTemplate = `
 /** {{name}} */
-export const {{ apiName }} = () => http<{{apiName}}Res>('{{path}}','{{method}}')
-`
-
-const PostTemplateWx = `
-/** {{name}} */
-export const {{ apiName }} = () => http<{{apiName}}Res>({
-  url: '{{path}}',
-  method: '{{method}}',
-})
+export const {{ apiName }} = () => http.{{method}}<{{apiName}}Res>('{{path}}')
 `
 
 const PostPathParamsTemplateFn = `
 /** {{name}} */
-export const {{ apiName }} = ({{#each list}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) => http<{{apiName}}Res>(\`{{path}}\`,'{{method}}')
-`
-
-const PostPathParamsTemplateFnWx = `
-/** {{name}} */
-export const {{ apiName }} = ({{#each list}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) => {
-  return http<{{apiName}}Res>({
-    url: \`{{path}}\`,
-    method: '{{method}}',
-  })
-}
+export const {{ apiName }} = ({{#each list}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) => http.{{method}}<{{apiName}}Res>(\`{{path}}\`)
 `
 
 const PostQueryDataTemplate = `
 /** {{name}} */
-export const {{ apiName }} = (data: {{apiName}}Req) => http<{{apiName}}Res>('{{path}}','{{method}}',data)
-`
-
-const PostQueryDataTemplateWx = `
-/** {{name}} */
-export const {{ apiName }} = (data: {{apiName}}Req) => {
-  return http<{{apiName}}Res>({
-    url: '{{path}}',
-    method: '{{method}}',
-    data,
-  })
-}
+export const {{ apiName }} = (data: {{apiName}}Req) => http.{{method}}<{{apiName}}Res>('{{path}}',data)
 `
 
 // Post两者都有参数(path,body)
 const PostBodyTemplate = `
 /** {{name}} */
 export const {{ apiName }} = ({{#each list}}{{name}}: {{type}},{{/each}} data: {{apiName}}Req) => {
-  return http<{{apiName}}Res>(\`{{path}}\`,'{{method}}',data)
-}
-`
-
-// Post两者都有参数(path,body)
-const PostBodyTemplateWx = `
-/** {{name}} */
-export const {{ apiName }} = ({{#each list}}{{name}}: {{type}},{{/each}} data: {{apiName}}Req) => {
-  return http<{{apiName}}Res>({
-    url: \`{{path}}\`,
-    method: '{{method}}',
-    data,
-  })
+  return http.{{method}}<{{apiName}}Res>(\`{{path}}\`,data)
 }
 `
 
 const PutTemplate = `
 /** {{name}} */
-export const {{ apiName }} = () => http<{{apiName}}Res>('{{path}}','{{method}}')
+export const {{ apiName }} = () => http.{{method}}<{{apiName}}Res>('{{path}}')
 `
 
 const DelTemplate = `
 /** {{name}} */
-export const {{ apiName }} = ({{#each list}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) => http<{{apiName}}Res>(\`{{path}}\`,'{{method}}')
+export const {{ apiName }} = ({{#each list}}{{name}}: {{type}}{{#unless @last}}, {{/unless}}{{/each}}) => http.{{method}}<{{apiName}}Res>(\`{{path}}\`)
 `
 
 // Get无参数
 export const noQueryAndPathParametersFn = Handlebars.compile(noQueryAndPathParameters)
-export const noQueryAndPathParametersWxFn = Handlebars.compile(noQueryAndPathParametersWx)
 // Get有参数
 export const getPathParamsTemplateFn = Handlebars.compile(GetPathParamsTemplate)
-export const getPathParamsTemplateWxFn = Handlebars.compile(GetPathParamsTemplateWx)
 
 export const getQueryParamsTemplateFn = Handlebars.compile(GetQueryParamsTemplate)
-export const getQueryParamsTemplateWxFn = Handlebars.compile(GetQueryParamsTemplateWx)
 
 // Get两者都有参数(path,body)
 export const getBodyTemplateWxFn = Handlebars.compile(GetBodyTemplate)
 
 // Post无参数
 export const postTemplateFn = Handlebars.compile(PostTemplate)
-export const postTemplateWxFn = Handlebars.compile(PostTemplateWx)
 // Post有参数
 export const postPathParamsTemplateFn = Handlebars.compile(PostPathParamsTemplateFn)
-export const postPathParamsTemplateWxFn = Handlebars.compile(PostPathParamsTemplateFnWx)
 export const postQueryDataTemplateFn = Handlebars.compile(PostQueryDataTemplate)
-export const postQueryDataTemplateWxFn = Handlebars.compile(PostQueryDataTemplateWx)
 export const postBodyTemplateFn = Handlebars.compile(PostBodyTemplate)
-export const postBodyTemplateWxFn = Handlebars.compile(PostBodyTemplateWx)
 // Put
 export const putTemplateFn = Handlebars.compile(PutTemplate)
 // Delete

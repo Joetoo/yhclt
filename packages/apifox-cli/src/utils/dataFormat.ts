@@ -5,6 +5,11 @@ import { fetchApiDetails } from './index.js'
 
 // 中文转拼音, 小驼峰命名
 export const cnToPinyin = (cn: string) => {
+  // 检查字符串是否全部为英文字符
+  if (!/[\u4E00-\u9FA5]/.test(cn)) {
+    return cn // 如果是纯英文，则直接返回原字符串
+  }
+
   const pyArr = pinyin(cn, { toneType: 'none', type: 'array' })
 
   // 转换为小驼峰命名法的字符串

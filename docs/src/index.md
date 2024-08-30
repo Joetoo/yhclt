@@ -3,11 +3,11 @@
 layout: home
 
 title: 萤火虫MIT-FE
-titleTemplate: 一个前端物料库（组件、函数等）
+titleTemplate: 前端物料库
 
 hero:
-  name: "萤火虫MIT-FE"
-  text: "前端物料库"
+  name: '萤火虫MIT-FE'
+  text: '前端物料库'
   tagline: 🎉包括UI组件、hooks、工具函数等
   # image:
   #   src: /favicon.svg
