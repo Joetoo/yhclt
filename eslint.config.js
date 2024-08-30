@@ -9,7 +9,6 @@ export default antfu({
   },
   typescript: true,
   vue: true,
-  // unocss: true,
   lessOpinionated: true,
 
   rules: {

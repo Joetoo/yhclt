@@ -2,9 +2,9 @@
 
 ## 介绍
 
-## 软件架构
+## 项目架构
 
-workspace-monorepo 是一个采用 pnpm+monorepo 架构设计的前端项目。
+采用 pnpm+monorepo 架构设计的workspace
 
 ## 安装教程
 
@@ -277,3 +277,24 @@ vue: 'Vue'
 - [手把手教你用Rollup构建一个前端个人工具函数库 摇树优化 一键生成文档站点](https://juejin.cn/post/7245584147456426045#heading-7)
 - [使用pnpm和changeset管理monorepo项目](https://juejin.cn/post/7117886038126624805#heading-17)
 - [pnpm workspace 指南](https://pnpm.io/zh/feature-comparison)
+
+<!-- {
+  "scripts": {
+    "doc:utils": "pnpm --dir packages/utils doc",
+    "doc": "typedoc --options ./typedoc.json",
+    "doc:debug": "pnpm --dir packages/utils doc:debug",
+    "trace": "pnpm --dir packages/utils trace",
+    "test": "vitest test",
+    "test:update": "vitest -u",
+    "coverage": "vitest run --coverage",
+  },
+  "dependencies": {
+    "@vue/shared": "^3.4.29",
+  },
+  "devDependencies": {
+    "typedoc": "^0.25.13",
+    "typedoc-plugin-markdown": "^4.0.3",
+    "typescript": "^5.4.5",
+    "vue": "^3.4.27"
+  }
+} -->
