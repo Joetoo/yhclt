@@ -4,7 +4,7 @@
 
 ## 项目架构
 
-采用 pnpm+monorepo 架构设计的workspace
+采用 pnpm+monorepo 架构设计的 workspace
 
 ## 安装教程
 
@@ -198,7 +198,7 @@ export default myReadfile()
 
 ## 测试路径搭建
 
-## vite打包
+## vite 打包
 
 import {
 defineConfig,
@@ -231,7 +231,7 @@ entry: 'src/packages/index.ts', // 你的入口文件路径
 name: 'vite-lib', // 你的库名称
 fileName: (format) => `vite-lib.${format}.js` // 打包后的文件名
 },
-sourcemap: true, // 输出.map文件
+sourcemap: true, // 输出.map 文件
 rollupOptions: {
 // 此处添加外部依赖项（如 Vue），以避免将其打包进你的库中
 external: [
@@ -271,11 +271,11 @@ vue: 'Vue'
 
 ## 参考链接
 
-- [非大厂的我们，如何去搞Vue/React Hooks和Utils的企业开源工具库？](https://juejin.cn/post/7165671737076482062#heading-2)
-- [pnpm + monorepo + changeset实现多包管理和发布](https://www.swvq.com/boutique/detail/tanhbeahkg)
-- [使用Vite和TypeScript带你从零打造一个属于自己的Vue3组件库](https://juejin.cn/post/7117886038126624805#heading-17)
-- [手把手教你用Rollup构建一个前端个人工具函数库 摇树优化 一键生成文档站点](https://juejin.cn/post/7245584147456426045#heading-7)
-- [使用pnpm和changeset管理monorepo项目](https://juejin.cn/post/7117886038126624805#heading-17)
+- [非大厂的我们，如何去搞 Vue/React Hooks 和 Utils 的企业开源工具库？](https://juejin.cn/post/7165671737076482062#heading-2)
+- [pnpm + monorepo + changeset 实现多包管理和发布](https://www.swvq.com/boutique/detail/tanhbeahkg)
+- [使用 Vite 和 TypeScript 带你从零打造一个属于自己的 Vue3 组件库](https://juejin.cn/post/7117886038126624805#heading-17)
+- [手把手教你用 Rollup 构建一个前端个人工具函数库 摇树优化 一键生成文档站点](https://juejin.cn/post/7245584147456426045#heading-7)
+- [使用 pnpm 和 changeset 管理 monorepo 项目](https://juejin.cn/post/7117886038126624805#heading-17)
 - [pnpm workspace 指南](https://pnpm.io/zh/feature-comparison)
 
 <!-- {
@@ -298,3 +298,7 @@ vue: 'Vue'
     "vue": "^3.4.27"
   }
 } -->
+
+## 部署 vitepress
+
+1. config.ts 创建 base:'/yhclt/'

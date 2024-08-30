@@ -4,6 +4,7 @@ import { nav, sidebar } from './utils/index'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base:'/yhclt/',
   title: '萤火虫MIT-FE',
   description: '前端物料库',
   srcDir: 'src',
