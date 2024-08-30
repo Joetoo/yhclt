@@ -34,9 +34,12 @@ jobs:
         with:
           node-version: 20.17.0
           cache: pnpm
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Install dependencies
+      - name: Install
         run: pnpm install
       - name: Build with VitePress
         run: pnpm docs:build
@@ -55,10 +58,6 @@ jobs:
     steps:
       # - name: Checkout
       #   uses: actions/checkout@v4
-      #   # 使用pnpm
-      # - uses: pnpm/action-setup@v2
-      #   with:
-      #     version: 8
       # - name: Setup Pages
       #   uses: actions/configure-pages@v5
       # - name: Upload artifact
