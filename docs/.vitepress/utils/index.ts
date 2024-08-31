@@ -34,6 +34,7 @@ function getItems(path: string) {
 // 顶部导航栏
 export const nav = [
   // { text: '指南', link: '/guide/index' },
+  { text: 'examples', link: '/examples/api-examples' },
   {
     text: '工具',
     activeMatch: '/tools/',
@@ -56,7 +57,7 @@ export const nav = [
       },
     ],
   },
-  // { text: '需求方案', link: '/02-需求方案' },
+  { text: '需求方案', link: '/demand-plan' },
   // { text: '组件', link: 'https://localfile.galaxy-immi.com/fe-ui-doc/' },
   { text: '开发规范', link: '/standard/index' },
   {
@@ -96,6 +97,16 @@ export const nav = [
 
 // 侧边栏
 export const sidebar = {
+  '/examples/': [
+    {
+      text: 'api-examples',
+      link: '/examples/api-examples',
+    },
+    {
+      text: 'markdown-examples',
+      link: '/examples/markdown-examples',
+    },
+  ],
   '/standard/': [
     // ...getSource('standard', '规范'),
     {
@@ -182,7 +193,18 @@ export const sidebar = {
         },
       ],
     },
-  ] as DefaultTheme.SidebarItem[],
+  ],
+  '/demand-plan/': [
+    {
+      text: 'axios二次封装',
+      link: '/demand-plan/axios',
+    },
+    {
+      text: '常用指令',
+      link: '/demand-plan/v-demo',
+    },
+  ],
+
 }
 // {
 //   text: '需求方案',
