@@ -45,7 +45,7 @@ export default antfu({
      * Supports Prettier and dprint
      * By default uses Prettier
      */
-    // markdown: 'prettier',
+    markdown: 'prettier',
   },
   ignores: [
     '**/node_modules',
