@@ -4,7 +4,7 @@ import { nav, sidebar } from './utils/index'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base:'/yhclt/',
+  base: '/yhclt/',
   title: '萤火虫MIT-FE',
   description: '前端物料库',
   srcDir: 'src',
@@ -16,7 +16,7 @@ export default defineConfig({
     nav,
     sidebar,
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/Joetoo/yhclt' },
     ],
   },
 })

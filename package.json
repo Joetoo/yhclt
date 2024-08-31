@@ -45,7 +45,6 @@
     }
   },
   "dependencies": {
-    "@yhclt/hooks": "workspace:^",
     "@yhclt/theme-chalk": "workspace:^",
     "@yhclt/ui": "workspace:^",
     "@yhclt/utils": "workspace:^",
