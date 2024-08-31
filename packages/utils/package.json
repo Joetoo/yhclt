@@ -12,7 +12,8 @@
     "url": "https://github.com/Joetoo/yhclt"
   },
   "keywords": [
-    "utils"
+    "utils",
+    "hooks"
   ],
   "exports": {
     ".": {

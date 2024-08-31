@@ -1,13 +1,8 @@
-/*
- * @FilePath: \startup-monorepo\packages\utils\src\index.ts
- * @Description: utils函数入口
- */
+// hooks
+// export * from './hooks/use-children'
+// export * from './hooks/use-lock-scroll'
 
-// 获取月份和周数
-// export * from './getMonthAndWeek'
-// 文本溢出
-// export * from './textIsOverFlow'
-
+// utils
 export * from './is'
 export * from './tools'
 
@@ -27,3 +22,7 @@ export * from './tools'
 // export * from './typescript'
 // export * from './throttleByRaf'
 // export * from './easings'
+// 获取月份和周数
+// export * from './getMonthAndWeek'
+// 文本溢出
+// export * from './textIsOverFlow'
