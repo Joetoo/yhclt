@@ -25,6 +25,8 @@
     "apifox:build:out": "pnpm --dir packages/apifox-cli build:out",
     "ui:dev": "pnpm --dir packages/ui dev",
     "ui:build": "pnpm --dir packages/ui build",
+    "utils:dev": "pnpm --dir packages/utils dev",
+    "utils:build": "pnpm --dir packages/utils build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",
@@ -37,7 +39,6 @@
     "__test__comment": "vitest测试",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "utils:build": "pnpm --dir packages/utils build",
     "changeset": "changeset",
     "changeset-v": "changeset version",
     "publish": "changeset publish --registry=https://registry.npmjs.com/"

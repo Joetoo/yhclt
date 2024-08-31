@@ -18,4 +18,4 @@ export const hideMobile = (mobile: string) => {
  */
 export const copyToClipboard = (text: string) => navigator.clipboard.writeText(text)
 
-copyToClipboard('Hello World')
+// copyToClipboard('Hello World')

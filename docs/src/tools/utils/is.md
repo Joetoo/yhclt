@@ -19,26 +19,6 @@
 
 </div>
 
-## add函数
-
-求和
-
-### 参数
-
-- `x`: 第一个参数 (number)
-- `y`: 第二个参数 (number)
-
-### 返回值
-
-- **和** (number): 返回两个参数的和。
-
-### 示例
-
-```javascript
-const result = add(1, 2)
-console.log(result) // 输出: 3
-```
-
 ## getMonthAndWeek函数
 
 以日期字符串作为输入，并返回该日期的月份和周数。

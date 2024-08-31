@@ -32,29 +32,31 @@ npm install @yhclt/utils
 
 :::
 
-### 📡 `CDN`
+<!-- ### 📡 `CDN`
 
 ::: code-group
 
 ```html [jsdelivr]
 <!-- 提供包含所有方法的全局变量 PureUtils -->
-<script src="//cdn.jsdelivr.net/npm/@yhclt/utils"></script>
-```
+<script src="//cdn.jsdelivr.net/npm/@yhclt/utils"></script>
+
+````
 
 ```html [unpkg]
 <!-- 提供包含所有方法的全局变量 PureUtils -->
-<script src="//unpkg.com/@yhclt/utils"></script>
-```
+<script src="//unpkg.com/@yhclt/utils"></script>
+
+``` -->
 
 :::
 
-### 📚 示例
+<!-- ### 📚 示例 -->
 
-集成 `vue-vite`、`vue-cli`、`preact`、`react`、`solid`、`svelte`、`nuxt3`、`next`、`node`、`html` 使用示例
+<!-- 集成 `vue-vite`、`vue-cli`、`preact`、`react`、`solid`、`svelte`、`nuxt3`、`next`、`node`、`html` 使用示例 -->
 
 <!-- [查看示例代码](https://github.com/pure-admin/pure-admin-utils-docs/tree/master/playgrounds) -->
 
-我们为`nuxt3`提供了所有`hooks`示例
+<!-- 我们为`nuxt3`提供了所有`hooks`示例 -->
 
 <!-- [代码仓库](https://github.com/pure-admin/pure-admin-utils-nuxt3) [在线预览](https://pure-admin.github.io/pure-admin-utils-nuxt3/) -->
 
@@ -66,7 +68,7 @@ npm install @yhclt/utils
 ```ts
 import { cloneDeep as _cloneDeep } from '@yhclt/utils'
 _cloneDeep()
-```
+````
 
 [反馈问题、新增需求](https://github.com/Joetoo/yhclt/issues/new)
 
