@@ -1,4 +1,4 @@
-import fg from 'fast-glob'
+// import fg from 'fast-glob'
 import type { DefaultTheme } from 'vitepress'
 import { hooks } from './sortHooks'
 
@@ -17,19 +17,19 @@ function sortHooks(list: DefaultTheme.SidebarItem[]) {
     .filter(Boolean)
 }
 
-function getItems(path: string) {
-  const links: DefaultTheme.SidebarItem[] = []
-  fg.sync(`docs/${path}/*`, {
-    onlyDirectories: true,
-    objectMode: true,
-  }).forEach(({ name }) => {
-    links.push({
-      text: name === 'formData' ? name + addBadgeHTML('新内容更新') : name,
-      link: `/${path}/${name}/${name}`,
-    })
-  })
-  return links
-}
+// function getItems(path: string) {
+//   const links: DefaultTheme.SidebarItem[] = []
+//   fg.sync(`docs/${path}/*`, {
+//     onlyDirectories: true,
+//     objectMode: true,
+//   }).forEach(({ name }) => {
+//     links.push({
+//       text: name === 'formData' ? name + addBadgeHTML('新内容更新') : name,
+//       link: `/${path}/${name}/${name}`,
+//     })
+//   })
+//   return links
+// }
 
 // 顶部导航栏
 export const nav = [
