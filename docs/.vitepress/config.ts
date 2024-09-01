@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 import { nav, sidebar } from './utils/index'
-// import { getNavData, getSidebarData } from './navSidebarUtil'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

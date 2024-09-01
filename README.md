@@ -10,260 +10,88 @@
 
 ```bash
 # 安装公共依赖
-pnpm i typescript -w
-# // 安装开发依赖
-pnpm i typescript -Dw
-# // 安装指定依赖
+pnpm i xxx -w
+# 安装开发依赖
+pnpm i xxx -Dw
+# 安装xxx依赖到 packages/* 项目下
 pnpm add <package_name> --filter <package_selector>
-pnpm add <package_name> --filter @yhclt/components
-# // 运行单个包的scripts脚本
+pnpm add <package_name> --filter @yhclt/utils
+# 运行单个包的scripts脚本
 pnpm dev --filter <package_selector>
-# // 各个 packages/* 模块包间的相互依赖,递归安装依赖
-pnpm install axios -r
+# 各个 packages/* 模块包间的相互依赖,递归安装依赖
+pnpm install xxx -r
 pnpm install <package_selector1> -r --filter <package_selector2>
 
-```
-
-### 创建 packages 目录并安装依赖
-
-```bash
-mkdir packages
-pnpm install lodash -r --filter @test/core
-pnpm install element-plus
-pnpm install -D @element-plus/nuxt --filter realworld-nuxt3
-pnpm install normalize.css --filter realworld-nuxt3
 ```
 
 ## 启动项目
 
 ```bash
-# 启动 Nuxt.js 3 项目
-pnpm dev:nuxt3
-
-# 启动 Vue 3 项目
-pnpm dev:vue3
+# 启动 play
+pnpm dev
 
 # 其他启动命令...
 ```
 
 ## 一键生成文档
 
+- 采用 TSDoc 规范编写代码注释
+- [api-extractor] 分析代码注释生成文档模型
+- [api-documenter] 解析文档模型生成接口md文档
+
 使用 `@microsoft/api-extractor` 和 `@microsoft/api-documenter` 一键生成 API 文档。
 
-```bash
-pnpm add @microsoft/api-extractor @microsoft/api-documenter -D --filter @yhclt/utils
-```
+1. 初始化生成配置文件 api-extractor.json
+2. pnpm api 提取文档
+3. pnpm md 生成md文档
 
 ## 发包问题
 
-changesets 管理 monorepo 多包项目
+采用 changesets 管理 monorepo 多包项目
 
+```json
 {
-"$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
-// changelog 生成方式
-"changelog": "@changesets/cli/changelog",
-// 不要让 changeset 在 publish 的时候帮我们做 git add
-"commit": false,
-"fixed": [],
-// 配置哪些包要共享版本
-"linked": [],
-// 公私有安全设定，内网建议 restricted ，开源使用 public
-"access": "public",
-// 项目主分支
-"baseBranch": "master",
-// 在每次 version 变动时一定无理由 patch 抬升依赖他的那些包的版本，防止陷入 major 优先的未更新问题
-"updateInternalDependencies": "patch",
-// 不需要变动 version 的包
-"ignore": []
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
+  // changelog 生成方式
+  "changelog": "@changesets/cli/changelog",
+  // 不要让 changeset 在 publish 的时候帮我们做 git add
+  "commit": false,
+  "fixed": [],
+  // 配置哪些包要共享版本
+  "linked": [],
+  // 公私有安全设定，内网建议 restricted ，开源使用 public
+  "access": "public",
+  // 项目主分支
+  "baseBranch": "main",
+  // 在每次 version 变动时一定无理由 patch 抬升依赖他的那些包的版本，防止陷入 major 优先的未更新问题
+  "updateInternalDependencies": "patch",
+  // 不需要变动 version 的包
+  "ignore": []
 }
+```
 
 ## 项目打包
 
-什么是 esm、cjs、iife 格式
+1. unbuild
+2. vite build 打包
 
-esm 格式：ECMAScript Module，现在使用的模块方案，使用 import export 来管理依赖；
+```js
+// 什么是 esm、cjs、iife 格式
 
-cjs 格式：CommonJS，只能在 NodeJS 上运行，使用 require("module") 读取并加载模块；
+// esm 格式：ECMAScript Module，现在使用的模块方案，使用 import export 来管理依赖
 
-iife 格式：通过 <script> 标签引入的自执行函数；
+// cjs 格式：CommonJS，只能在 NodeJS 上运行，使用 require("module") 读取并加载模块；
 
-import { defineConfig, Format, Options } from 'tsup'
-import fg from 'fast-glob'
-import { sassPlugin } from 'esbuild-sass-plugin'
-import fs from 'fs'
-import postcss from 'postcss'
-import autoprefixer from 'autoprefixer'
+// iife 格式：通过 <script> 标签引入的自执行函数；
+```
 
-const baseConfigs = [
-{
-dts: true, // 添加 .d.ts 文件
-metafile: false, // 添加 meta 文件
-minify: true, // 压缩
-splitting: false,
-sourcemap: false, // 添加 sourcemap 文件
-clean: true, // 是否先清除打包的目录，例如 dist
-format: ['cjs'] as Format[]
-},
-{
-dts: true, // 添加 .d.ts 文件
-metafile: false, // 添加 meta 文件
-minify: true, // 压缩
-splitting: false,
-sourcemap: false, // 添加 sourcemap 文件
-clean: true, // 是否先清除打包的目录，例如 dist
-format: ['esm'] as Format[]
-}
-]
-const filePaths: { text: string; path: string }[] = []
-const hasHandlePath: string[] = []
+## 测试 vitest
 
-const myReadfile = () => {
-const entries = fg.sync([`./packages/**/index.ts`, `./packages/**/index.tsx`], {
-onlyFiles: false,
-deep: Infinity,
-ignore: [`**/cli/**`, `**/node_modules/**`, `**/*.test.ts`]
-})
-const configs: Options[] = []
-baseConfigs.forEach((baseConfig) =>
-entries.forEach((file) => {
-const outDir = file.replace(/(packages/)(.\*?)//, `./packages/$2/cli/${baseConfig.format[0]}/`).replace(//index.(ts|tsx)$/, '')
-      configs.push({
-        target: ['esnext'],
-        entry: [file],
-        outDir: outDir,
-        loader: {
-          '.js': 'jsx',
-          '.jsx': 'jsx',
-          '.scss': 'css',
-          '.sass': 'css',
-          '.less': 'css',
-          '.css': 'css',
-          '.tsx': 'tsx'
-        },
-        ...baseConfig,
-        esbuildPlugins: [
-          sassPlugin({
-            async transform(source) {
-              const { css } = await postcss([autoprefixer]).process(source)
-              return css
-            }
-          }),
-          {
-            name: 'scss-plugin',
-            setup: (build) => {
-              build.onEnd((result) => {
-                result.outputFiles?.forEach((item) => {
-                  if (
-                    /index.(mjs|js)$/.test(item.path) &&
-result.outputFiles?.find((outputItem) => outputItem.path === item.path.replace(/(.js|.mjs)$/, '.css'))
-) {
-filePaths.push({ text: item.text, path: item.path })
-}
-})
-})
-}
-}
-],
-onSuccess: async () => {
-filePaths.forEach((item) => {
-if (!hasHandlePath.find((val) => val === item.path)) {
-fs.access(item.path, (err) => {
-if (!err) {
-let data = item.text
-data = `import "./index.css"; ${data}`
-fs.writeFile(
-item.path,
-`import "./index.css"; ${item.text}`,
-{
-encoding: 'utf-8'
-},
-(fileError) => {
-if (!fileError) {
-hasHandlePath.push(item.path)
-}
-}
-)
-}
-})
-}
-})
-}
-})
-})
-)
-return defineConfig(configs)
-}
+## 部署 vitepress
 
-export default myReadfile()
-
-## 测试路径搭建
-
-## vite 打包
-
-import {
-defineConfig,
-normalizePath
-} from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import path from 'path'
-
-// 用 normalizePath 解决 window 下的路径问题
-const variablePath = normalizePath(path.resolve('./src/assets/scss/variables.scss'))
-
-export default defineConfig({
-plugins: [
-vue(),
-vueJsx()
-],
-// css 相关的配置
-css: {
-preprocessorOptions: {
-scss: {
-// additionalData 的内容会在每个 scss 文件的开头自动注入
-additionalData: `@import "${variablePath}";`
-}
-}
-},
-build: {
-lib: {
-entry: 'src/packages/index.ts', // 你的入口文件路径
-name: 'vite-lib', // 你的库名称
-fileName: (format) => `vite-lib.${format}.js` // 打包后的文件名
-},
-sourcemap: true, // 输出.map 文件
-rollupOptions: {
-// 此处添加外部依赖项（如 Vue），以避免将其打包进你的库中
-external: [
-'vue',
-'element-plus',
-'dayjs',
-'lodash'
-],
-output: {
-// 设置为 'es' 或 'cjs'，取决于你的库的使用场景
-// format: 'es',
-// exports: 'named',
-// 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-globals: {
-vue: 'Vue'
-}
-}
-}
-}
-})
+1. config.ts 创建 base:'/yhclt/'
 
 ## 遇见问题
-
-2. **分支操作**：
-
-   - 新建 `Feat_xxx` 分支。
-   - 提交代码。
-   - 新建 Pull Request。
-
-   采用 TSDoc 规范编写代码注释
-   api-extractor 分析代码注释生成文档模型
-   api-documenter 解析文档模型生成接口文档
 
 ## 特技优化
 
@@ -277,28 +105,13 @@ vue: 'Vue'
 - [手把手教你用 Rollup 构建一个前端个人工具函数库 摇树优化 一键生成文档站点](https://juejin.cn/post/7245584147456426045#heading-7)
 - [使用 pnpm 和 changeset 管理 monorepo 项目](https://juejin.cn/post/7117886038126624805#heading-17)
 - [pnpm workspace 指南](https://pnpm.io/zh/feature-comparison)
+- [基于TSDoc规范生成漂亮的开源项目文档](https://juejin.cn/post/7275943600780787753?searchId=202408312125260968A15D4199BF36B1A5#heading-4)
 
 <!-- {
-  "scripts": {
-    "doc:utils": "pnpm --dir packages/utils doc",
-    "doc": "typedoc --options ./typedoc.json",
-    "doc:debug": "pnpm --dir packages/utils doc:debug",
-    "trace": "pnpm --dir packages/utils trace",
-    "test": "vitest test",
-    "test:update": "vitest -u",
-    "coverage": "vitest run --coverage",
-  },
-  "dependencies": {
-    "@vue/shared": "^3.4.29",
-  },
+
   "devDependencies": {
     "typedoc": "^0.25.13",
     "typedoc-plugin-markdown": "^4.0.3",
-    "typescript": "^5.4.5",
     "vue": "^3.4.27"
   }
 } -->
-
-## 部署 vitepress
-
-1. config.ts 创建 base:'/yhclt/'

@@ -17,23 +17,30 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     }
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "tsc --watch",
     "stub": "unbuild --stub",
-    "build": "unbuild"
+    "build": "unbuild",
+    "api": "npx api-extractor run --local --verbose",
+    "md": "npx api-documenter markdown -i temp -o md"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@microsoft/api-documenter": "^7.25.12",
+    "@microsoft/api-extractor": "^7.47.7"
   }
 }

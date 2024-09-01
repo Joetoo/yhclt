@@ -15,10 +15,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /markdown-examples
+      link: /tools/Get Start/installation
     - theme: alt
       text: API Examples
-      link: /api-examples
+      link: /examples/api-examples.html
 
 features:
   - icon: 🪐
