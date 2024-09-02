@@ -20,40 +20,32 @@ export default defineConfig({
     rollupOptions: {
       // 排除依赖的库,css
       external: ['vue', '@vueuse/core', 'element-plus', '@element-plus/icons-vue', '@yhclt/utils', /\.scss/],
-
       input: ['src/index.ts'], // 入口地址
       output: [
         // {
-        // format: 'es',
-        //           entryFileNames: '[name].mjs',
-        //           inlineDynamicImports: false
+        //   format: 'iife',
+        //   entryFileNames: 'yh.min.js',
+        //   dir: 'dist',
+        //   name: 'YhUI',
+        //   globals: {
+        //     'vue': 'Vue',
+        //     '@vueuse/core': 'VueUse',
+        //   },
+        //   inlineDynamicImports: false,
         // },
-        //         {
-        //           format: 'iife',
-        //           entryFileNames: 'erabbit.min.js',
-        //           dir: 'dist',
-        //           name: 'ErabbitUI',
-        //           globals: {
-        //             vue: 'Vue',
-        //             '@vueuse/core': 'VueUse'
-        //           },
-        //           inlineDynamicImports: false
-        //         },
         {
           format: 'es', // 按需加载 vite tree shaking
-          entryFileNames: '[name].js', // 不用打包成.es.js,这里我们想把它打包成.js // erabbit.esm-browser.js
+          entryFileNames: '[name].mjs', // 不用打包成.es.js,这里我们想把它打包成.js // erabbit.esm-browser.js
           dir: 'dist/es',
           preserveModules: true,
-          preserveModulesRoot: 'src',
-          // inlineDynamicImports: false,
+          inlineDynamicImports: false,
         },
         {
           format: 'cjs', // ssr lib commonjs
           entryFileNames: '[name].js',
-          // 让打包目录和我们目录对应
           preserveModules: true,
           dir: 'dist/lib',
-          // inlineDynamicImports: false,
+          inlineDynamicImports: false,
         },
       ],
     },

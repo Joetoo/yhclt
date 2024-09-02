@@ -7,7 +7,7 @@ import { installer } from './installer'
 
 export * from './badge'
 // export * from './Empty'
-// export * from './checkbox'
+export * from './checkbox'
 // export * from './Dialog'
 // export * from './TextEllipsis'
 

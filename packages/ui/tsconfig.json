@@ -3,12 +3,13 @@
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    // "baseUrl": ".",
-    // "module": "NodeNext",
-    // "moduleResolution": "NodeNext",
-    "strict": true
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "declaration": true,
+    "outDir": "dist",
+    "esModuleInterop": true
     // "types": ["element-plus/global", "vitest/globals"],
-    // "esModuleInterop": true
   },
   "include": ["src/**/*"],
   "exclude": ["dist/**/*"]

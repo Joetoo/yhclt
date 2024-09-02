@@ -1,6 +1,6 @@
-// import { defineComponent, type ExtractPropTypes, type PropType } from 'vue'
+// import { type ExtractPropTypes, type PropType, defineComponent } from 'vue'
+// import { createNamespace } from '@yhclt/utils'
 // import { Icon, type IconProps } from '../icon'
-// import { createNamespace } from '../utils'
 
 // export type ButtonType = 'default' | 'primary' | 'plain' | 'info' | 'danger' | 'warning' | 'success'
 
@@ -9,17 +9,17 @@
 // const props = {
 //   type: {
 //     type: String as PropType<ButtonType>,
-//     default: 'default'
+//     default: 'default',
 //   },
 //   size: {
 //     type: String as PropType<ButtonSize>,
-//     default: 'middle'
+//     default: 'middle',
 //   },
 //   round: Boolean,
 //   disabled: Boolean,
 //   // icon: String as PropType<IconProps['name']>,
 //   circle: Boolean,
-//   loading: Boolean
+//   loading: Boolean,
 // }
 
 // export type ErButtonProps = ExtractPropTypes<typeof props>
@@ -65,7 +65,7 @@
 //           props.round ? 'is-round' : undefined,
 //           props.circle ? 'is-circle' : undefined,
 //           props.disabled ? bem('disabled') : undefined,
-//           props.loading ? bem('loading') : undefined
+//           props.loading ? bem('loading') : undefined,
 //         ]}
 //         disabled={props.disabled || props.loading}
 //       >
@@ -73,5 +73,5 @@
 //         {renderText()}
 //       </button>
 //     )
-//   }
+//   },
 // })

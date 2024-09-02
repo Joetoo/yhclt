@@ -1,12 +1,11 @@
-// import { withInstall } from '../utils'
-// import _Checkbox from './src/Checkbox'
-// // 类型导出
-// export type { CheckboxProps } from './src/Checkbox'
+import { withInstall } from '@yhclt/utils'
+import _Checkbox from './src/Checkbox'
 
-// export const Checkbox = withInstall(_Checkbox)
+export type { CheckboxProps } from './src/Checkbox'
+export const Checkbox = withInstall(_Checkbox)
 
-// declare module 'vue' {
-//   export interface GlobalComponents {
-//     YhCheckbox: typeof Checkbox
-//   }
-// }
+declare module 'vue' {
+  export interface GlobalComponents {
+    YhCheckbox: typeof Checkbox
+  }
+}

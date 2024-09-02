@@ -7,7 +7,7 @@ import { Badge } from './badge'
 // import { Dialog } from './Dialog'
 // import { Empty } from './Empty'
 // import { TextEllipsis } from './TextEllipsis'
-// import { Checkbox } from './checkbox'
+import { Checkbox } from './checkbox'
 
 // import { Breadcrumb, BreadcrumbItem } from './breadcrumb'
 // import { Button } from './button'
@@ -30,7 +30,7 @@ const components = [
   // Dialog,
   // Carousel,
   // CarouselItem,
-  // Checkbox,
+  Checkbox,
   // Confirm,
   // Empty,
   // TextEllipsis,
