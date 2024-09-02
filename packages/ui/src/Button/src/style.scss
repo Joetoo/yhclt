@@ -1,0 +1,100 @@
+// .er-button {
+//   appearance: none;
+//   border: none;
+//   outline: none;
+//   background: var(--er-white);
+//   border: 1px solid transparent;
+//   border-radius: 4px;
+//   box-sizing: border-box;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   cursor: pointer;
+//   &__text {
+//     display: inline-block;
+//   }
+//   &__icon {
+//     display: inline-block;
+//     line-height: 0;
+//   }
+//   &--disabled {
+//     opacity: 0.6 !important;
+//     cursor: not-allowed !important;
+//   }
+//   &.is-circle {
+//     padding: 0 !important;
+//     border-radius: 25px !important;
+//   }
+//   &--large {
+//     min-width: 50px;
+//     height: 50px;
+//     font-size: 16px;
+//     padding: 0 20px;
+//     &.is-round {
+//       border-radius: 25px;
+//     }
+//   }
+//   &--middle {
+//     min-width: 32px;
+//     height: 32px;
+//     font-size: 14px;
+//     padding: 0 12px;
+//     &.is-round {
+//       border-radius: 16px;
+//     }
+//   }
+//   &--small {
+//     min-width: 24px;
+//     height: 24px;
+//     font-size: 12px;
+//     padding: 0 8px;
+//     &.is-round {
+//       border-radius: 12px;
+//     }
+//   }
+//   &--default {
+//     border-color: var(--er-border);
+//     color: var(--er-text);
+//   }
+//   &--primary {
+//     border-color: var(--er-primary);
+//     background: var(--er-primary);
+//     color: var(--er-white);
+//   }
+//   &--plain {
+//     border-color: var(--er-primary);
+//     color: var(--er-primary);
+//     background: var(--er-plain);
+//   }
+//   &--info {
+//     border-color: var(--er-border);
+//     background: var(--er-info);
+//     color: var(--er-white);
+//   }
+//   &--danger {
+//     border-color: var(--er-danger);
+//     background: var(--er-danger);
+//     color: var(--er-white);
+//   }
+//   &--warning {
+//     border-color: var(--er-warning);
+//     background: var(--er-warning);
+//     color: var(--er-white);
+//   }
+//   &--warning {
+//     border-color: var(--er-warning);
+//     background: var(--er-warning);
+//     color: var(--er-white);
+//   }
+//   &--success {
+//     border-color: var(--er-success);
+//     background: var(--er-success);
+//     color: var(--er-white);
+//   }
+//   &:active {
+//     opacity: 0.8;
+//   }
+//   &:hover {
+//     opacity: 0.9;
+//   }
+// }

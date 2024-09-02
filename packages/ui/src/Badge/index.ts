@@ -3,7 +3,7 @@
  * @Description: 组件唯一出入口
  */
 
-import { withInstall } from '../utils'
+import { withInstall } from '@yhclt/utils'
 import _Badge from './src/badge.vue'
 // 类型导出
 export type { YhBadgeProps } from './src/types'

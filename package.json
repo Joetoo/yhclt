@@ -101,8 +101,8 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix",
-    "*.{css,scss,vue}": "stylelint --cache --fix"
+    "*": "eslint --fix"
+
   },
   "eslintConfig": {
     "extends": [

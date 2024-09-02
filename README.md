@@ -109,6 +109,7 @@ pnpm dev
 
 <!-- {
 
+// "*.{css,scss,vue}": "stylelint --cache --fix"
   "devDependencies": {
     "typedoc": "^0.25.13",
     "typedoc-plugin-markdown": "^4.0.3",
