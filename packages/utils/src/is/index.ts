@@ -18,3 +18,47 @@ export const is = (val: unknown, type: string): boolean => {
 export const isNumeric = (val: number | string): val is string => {
   return typeof val === 'number' || /^\d+(?:\.\d+)?$/.test(val)
 }
+
+/**
+ * 获取对象类型
+ *
+ * @param obj 待检测对象
+ * @returns 返回对象类型（字符串形式）
+ */
+export const typeOf = (obj: any) => {
+  return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()
+}
+
+// import { isArray, isObject, isString } from '@vue/shared'
+// import { isNil } from 'lodash-es'
+
+// export { isArray, isFunction, isObject, isString, isDate, isPromise, isSymbol } from '@vue/shared'
+// export { isVNode } from 'vue'
+
+// export const isUndefined = (val: any): val is undefined => val === undefined
+// export const isBoolean = (val: any): val is boolean => typeof val === 'boolean'
+// export const isNumber = (val: any): val is number => typeof val === 'number'
+
+// export const isEmpty = (val: unknown) =>
+//   (!val && val !== 0) || (isArray(val) && val.length === 0) || (isObject(val) && !Object.keys(val).length)
+
+// export const isElement = (e: unknown): e is Element => {
+//   // eslint-disable-next-line style/max-statements-per-line
+//   if (typeof Element === 'undefined') { return false }
+//   return e instanceof Element
+// }
+
+// export const isPropAbsent = (prop: unknown): prop is null | undefined => {
+//   return isNil(prop)
+// }
+
+// export const isStringNumber = (val: string): boolean => {
+//   if (!isString(val)) {
+//     return false
+//   }
+//   return !Number.isNaN(Number(val))
+// }
+
+// export const isWindow = (val: unknown): val is Window => {
+//   return val === window
+// }

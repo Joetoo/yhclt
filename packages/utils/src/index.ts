@@ -4,7 +4,7 @@
 
 // utils
 export * from './is'
-export * from './strings'
+// export * from './strings'
 export * from './arrays'
 export * from './objects'
 
@@ -17,7 +17,6 @@ export * from './tools'
 
 // Internal code, don't use in your app!
 // export * from './vue'
-// export * from './arrays'
 // export * from './browser'
 // export * from './error'
 // export * from './functions'
