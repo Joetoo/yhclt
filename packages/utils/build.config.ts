@@ -15,5 +15,5 @@ export default defineBuildConfig({
     esbuild: { target: 'node20', minify: true },
   },
   // 排除的依赖
-  externals: [],
+  externals: ['vue', '@vue/shared'],
 })

@@ -3,7 +3,7 @@
 -->
 
 <script setup lang="ts">
-import { createNamespace } from '../../utils'
+import { createNamespace } from '@yhclt/utils'
 import { type BadgeType, badgeProps } from './types'
 
 defineOptions({
@@ -33,5 +33,21 @@ const colors: Record<BadgeType, string> = {
 </template>
 
 <style lang="scss" scoped>
-@import './style.scss';
+.yh-badge {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+
+  &--type {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  &--text {
+    line-height: inherit;
+  }
+}
 </style>

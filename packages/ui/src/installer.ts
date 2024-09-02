@@ -3,11 +3,11 @@
  */
 
 import type { App } from 'vue'
-import { Badge } from './Badge'
-import { Dialog } from './Dialog'
-import { Empty } from './Empty'
-import { TextEllipsis } from './TextEllipsis'
-import { Checkbox } from './checkbox'
+import { Badge } from './badge'
+// import { Dialog } from './Dialog'
+// import { Empty } from './Empty'
+// import { TextEllipsis } from './TextEllipsis'
+// import { Checkbox } from './checkbox'
 
 // import { Breadcrumb, BreadcrumbItem } from './breadcrumb'
 // import { Button } from './button'
@@ -27,13 +27,13 @@ const components = [
   // Breadcrumb,
   // BreadcrumbItem,
   // Button,
-  Dialog,
+  // Dialog,
   // Carousel,
   // CarouselItem,
-  Checkbox,
+  // Checkbox,
   // Confirm,
-  Empty,
-  TextEllipsis,
+  // Empty,
+  // TextEllipsis,
   // InputNumber,
   // Step,
   // StepItem,

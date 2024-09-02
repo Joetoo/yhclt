@@ -5,11 +5,11 @@
 // global install
 import { installer } from './installer'
 
-export * from './Badge'
-export * from './Empty'
-export * from './checkbox'
-export * from './Dialog'
-export * from './TextEllipsis'
+export * from './badge'
+// export * from './Empty'
+// export * from './checkbox'
+// export * from './Dialog'
+// export * from './TextEllipsis'
 
 // export * from './carousel'
 // export * from './checkbox'

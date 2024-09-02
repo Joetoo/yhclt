@@ -43,3 +43,27 @@ export const withNoopInstall = <T>(component: T) => {
 
   return component as SFCWithInstall<T>
 }
+
+export function createNamespace(
+  name: string,
+): [string, (...mods: string[]) => string] {
+  const prefixedName = `yh-${name}`
+
+  const bem = (...mods: string[]) => {
+    const classNames: string[] = []
+    if (mods) {
+      mods.forEach((mod) => {
+        if (mod) {
+          if (mod.startsWith('__')) {
+            return classNames.push(`${prefixedName}${mod}`)
+          } else {
+            return classNames.push(`${prefixedName}--${mod}`)
+          }
+        }
+      })
+    }
+    return classNames.join(' ')
+  }
+
+  return [prefixedName, bem]
+}

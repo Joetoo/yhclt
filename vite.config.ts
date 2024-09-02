@@ -26,9 +26,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'packages'),
-      '#': path.resolve(__dirname, 'src/types'),
-      '~public': path.resolve(__dirname, 'public'),
+      '@yhclt/ui': path.resolve(__dirname, 'packages/ui/src'),
+      '@yhclt/utils': path.resolve(__dirname, 'packages/utils/src'),
     },
   },
 })

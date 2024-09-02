@@ -14,6 +14,7 @@ export * from './dom'
 export * from './random'
 
 export * from './tools'
+export * from './install'
 
 // Internal code, don't use in your app!
 // export * from './vue'

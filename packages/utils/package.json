@@ -22,15 +22,16 @@
       "require": "./dist/index.cjs"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "tsc --watch",
     "stub": "unbuild --stub",
+    "test": "vitest",
     "build": "unbuild",
     "api": "npx api-extractor run --local --verbose",
     "md": "npx api-documenter markdown -i temp -o md"
