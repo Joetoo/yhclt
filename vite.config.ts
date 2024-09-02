@@ -1,7 +1,7 @@
-import vue from '@vitejs/plugin-vue'
-// import vueJsx from '@vitejs/plugin-vue-jsx'
+import path from 'node:path'
 import { defineConfig } from 'vite'
-import UnoCSS from 'unocss/vite'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // import AutoImport from 'unplugin-auto-import/vite'
 // import Components from 'unplugin-vue-components/vite'
@@ -9,9 +9,9 @@ import UnoCSS from 'unocss/vite'
 // import DefineOptions from 'unplugin-vue-define-options/vite';
 export default defineConfig({
   plugins: [
-    // vueJsx(),
     vue(),
-    UnoCSS(),
+    vueJsx(),
+
     // AutoImport({
     //   resolvers: [ElementPlusResolver({
     //     importStyle: 'sass',
@@ -24,4 +24,11 @@ export default defineConfig({
     //   })],
     // })
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'packages'),
+      '#': path.resolve(__dirname, 'src/types'),
+      '~public': path.resolve(__dirname, 'public'),
+    },
+  },
 })

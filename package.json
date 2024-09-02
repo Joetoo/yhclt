@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "@yhclt/theme-chalk": "workspace:^",
+    "@yhclt/ui": "workspace:^",
     "@yhclt/utils": "workspace:^",
     "lodash-es": "^4.17.21"
   },

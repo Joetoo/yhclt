@@ -1,0 +1,32 @@
+{
+  "name": "@yhclt/ui",
+  "version": "0.0.1",
+  "description": "UI Components built with Vue3",
+  "keywords": [
+    "ui",
+    "vue",
+    "vue3",
+    "components",
+    "YhUI"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "element-plus": "^2.7.4"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.10.0"
+  },
+  "devDependencies": {
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-element-plus": "^0.8.0",
+    "unplugin-vue-components": "^0.27.0"
+  }
+}

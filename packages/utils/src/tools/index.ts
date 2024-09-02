@@ -13,9 +13,23 @@ export const hideMobile = (mobile: string) => {
 }
 
 /**
- * TypeScript 中的 `copyToClipboard` 函数使用 `navigator.clipboard.writeText` 方法将提供的文本复制到剪贴板。
- * @param {string} text - '你好世界'
+ * 将文本复制到剪贴板
+ *
+ * @param text 要复制的文本
  */
-export const copyToClipboard = (text: string) => navigator.clipboard.writeText(text)
+export const copyToClipboard = (text: string) => {
+  if (navigator.clipboard) {
+    return navigator.clipboard.writeText(text)
+  }
+  // 浏览器兼容的适配
+  const textArea = document.createElement('textarea')
+  textArea.value = text
 
-// copyToClipboard('Hello World')
+  document.body.appendChild(textArea)
+
+  textArea.focus()
+  textArea.select()
+
+  document.execCommand('copy')
+  document.body.removeChild(textArea)
+}

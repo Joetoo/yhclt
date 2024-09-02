@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    // "baseUrl": ".",
+    // "module": "NodeNext",
+    // "moduleResolution": "NodeNext",
+    "strict": true
+    // "types": ["element-plus/global", "vitest/globals"],
+    // "esModuleInterop": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist/**/*"]
+}
