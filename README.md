@@ -100,12 +100,10 @@ pnpm dev
 ## 参考链接
 
 - [非大厂的我们，如何去搞 Vue/React Hooks 和 Utils 的企业开源工具库？](https://juejin.cn/post/7165671737076482062#heading-2)
-- [pnpm + monorepo + changeset 实现多包管理和发布](https://www.swvq.com/boutique/detail/tanhbeahkg)
 - [使用 Vite 和 TypeScript 带你从零打造一个属于自己的 Vue3 组件库](https://juejin.cn/post/7117886038126624805#heading-17)
-- [手把手教你用 Rollup 构建一个前端个人工具函数库 摇树优化 一键生成文档站点](https://juejin.cn/post/7245584147456426045#heading-7)
-- [使用 pnpm 和 changeset 管理 monorepo 项目](https://juejin.cn/post/7117886038126624805#heading-17)
 - [pnpm workspace 指南](https://pnpm.io/zh/feature-comparison)
 - [基于TSDoc规范生成漂亮的开源项目文档](https://juejin.cn/post/7275943600780787753?searchId=202408312125260968A15D4199BF36B1A5#heading-4)
+- [个人工具函数库 摇树优化 一键生成文档站点](https://juejin.cn/post/7245584147456426045#heading-7)
 
 <!-- {
 
