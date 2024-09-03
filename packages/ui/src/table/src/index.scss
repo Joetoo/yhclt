@@ -1,0 +1,248 @@
+// @import '../../../common/index';
+
+// .ga-table-container {
+//   display: flex;
+//   flex-direction: column;
+
+//   .columns-setting-area {
+//     display: flex;
+//     align-items: center;
+
+//     & > span {
+//       flex: 1;
+//     }
+
+//     .el-icon {
+//       box-sizing: content-box;
+//       cursor: pointer;
+//     }
+
+//     .el-icon:hover {
+//       color: var(--el-color-primary);
+//     }
+//   }
+
+//   .pagination-container {
+//     display: flex;
+//     align-items: flex-end;
+//     justify-content: space-between;
+//     width: 100%;
+//     margin-top: 5px;
+
+//     .total-length {
+//       font-size: 14px;
+//       font-weight: 400;
+//       color: $hk-main-text-color;
+
+//       span {
+//         margin: 0 6px;
+//       }
+//     }
+//   }
+// }
+
+// .columns-config {
+//   width: 318px !important;
+
+//   .el-drawer__header {
+//     padding-left: 32px;
+//     margin-bottom: 4px;
+//   }
+
+//   .el-drawer__title {
+//     font-weight: 500;
+//     color: $hk-main-text-color;
+//   }
+
+//   .el-drawer__body {
+//     .el-table__header-wrapper {
+//       display: none;
+//     }
+//   }
+
+//   .el-drawer__footer {
+//     .el-button--primary.is-link {
+//       font-weight: 400;
+//     }
+//   }
+
+//   .sort-btn {
+//     margin-left: -4px;
+//     cursor: move;
+
+//     .el-space__item:first-child {
+//       margin-right: 6px !important;
+//     }
+//   }
+
+//   .sortable-drag {
+//     background-color: white;
+
+//     .el-icon {
+//       font-weight: 600;
+//       color: $hk-compel-color4;
+//     }
+
+//     .sort-btn {
+//       cursor: move;
+//     }
+//   }
+
+//   .sortable-chosen {
+//     &:hover {
+//       td.el-table__cell .cell {
+//         line-height: 36px;
+//         background-color: white;
+//       }
+//     }
+//   }
+
+//   .blue-background-class {
+//     background-color: #eee;
+//   }
+
+//   .el-table.sortable-table {
+//     td.el-table__cell {
+//       height: 36px;
+//       padding: 0;
+//       border-bottom: 0;
+
+//       .cell {
+//         line-height: 36px;
+//       }
+//     }
+
+//     .el-table__row {
+//       height: 36px !important;
+//     }
+
+//     .el-table__inner-wrapper::before {
+//       background-color: rgb(0 0 0 / 0%);
+//     }
+//   }
+
+//   .el-switch__core {
+//     height: 18px;
+//   }
+// }
+
+// .el-table.ga-table {
+//   flex: 1;
+
+//   &.is-scrolling-none,
+//   &.is-scrolling-left,
+//   &.is-scrolling-right {
+//     --ga-table-header-bg-color: #f2f4f7;
+//   }
+
+//   .el-table__header-wrapper {
+//     border-radius: 4px;
+//   }
+
+//   thead {
+//     tr {
+//       height: 40px;
+//       border-radius: 4px;
+
+//       th.el-table__cell {
+//         background-color: $hk-compel-color11;
+
+//         .cell {
+//           font-size: 14px;
+//           font-weight: 400;
+//           line-height: 20px;
+//           color: #6d6c77;
+//           word-break: keep-all;
+//         }
+//       }
+
+//       .el-table-fixed-column--right,
+//       .el-table-fixed-column--left {
+//         background-color: $hk-compel-color11;
+//       }
+//     }
+//   }
+
+//   .el-empty__description {
+//     margin-top: 0;
+//   }
+
+//   .el-table__inner-wrapper::before {
+//     background-color: rgb(0 0 0 / 0%);
+//   }
+
+//   .el-table__row {
+//     height: 46px;
+//     color: $hk-main-text-color;
+//     cursor: pointer;
+//     border-radius: 2px;
+
+//     .el-table__cell,
+//     .el-table__cell.is-leaf {
+//       div {
+//         font-size: 14px;
+//         font-weight: 400;
+//         line-height: 36px;
+//         color: $hk-main-text-color;
+//       }
+//     }
+
+//     .tr-button {
+//       display: none;
+
+//       &.top {
+//         display: block;
+//       }
+//     }
+
+//     &:hover {
+//       background-color: $hk-compel-color12;
+
+//       td.el-table__cell {
+//         background-color: $hk-compel-color12 !important;
+//       }
+
+//       .tr-button {
+//         display: block;
+//       }
+//     }
+//   }
+
+//   tr.el-table__row--striped {
+//     background-color: #f9fafc;
+
+//     td.el-table__cell {
+//       background-color: #f9fafc;
+//     }
+
+//     &:hover {
+//       background-color: #f9fafc;
+//     }
+//   }
+
+//   .el-popper {
+//     max-width: 50%;
+//   }
+
+//   .el-scrollbar__view {
+//     height: 100%;
+//   }
+// }
+
+// .table-has-no-border {
+//   .el-table td.el-table__cell {
+//     border-bottom: none;
+//   }
+
+//   th.el-table__cell.is-leaf {
+//     border: none;
+//   }
+
+//   .el-table__row {
+//     .el-table__cell,
+//     .el-table__cell.is-leaf {
+//       padding: 0;
+//       border: none;
+//     }
+//   }
+// }
