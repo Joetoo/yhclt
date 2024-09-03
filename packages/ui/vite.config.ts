@@ -64,13 +64,6 @@ export default defineConfig({
       outDir: ['dist/es', 'dist/lib'],
       tsconfigPath: './tsconfig.json',
     }),
-    // AutoImport({
-    //   // 自动导入 Vue 相关函数，如:ref, reactive, toRef 等
-    //   imports: ['vue'],
-    //   // 生成自动导入声明文件
-    //   dts: './auto-imports.d.ts',
-    //   resolvers: [ElementPlusResolver()],
-    // }),
     // Components({
     //   // 不开起自动生成声明文件 dts: false
     //   dts: false,
@@ -78,6 +71,8 @@ export default defineConfig({
     //   resolvers: [ElementPlusResolver({ importStyle: false })],
     // }),
     AutoImport({
+      imports: ['vue'],
+      dts: 'src/types/auto-imports.d.ts',
       resolvers: [ElementPlusResolver()],
     }),
     Components({
