@@ -8,9 +8,10 @@ import { installer } from './installer'
 export * from './badge'
 export * from './checkbox'
 export * from './text-ellipsis'
+export * from './empty'
 
 // export * from './Dialog'
-// export * from './Empty'
+
 // export * from './carousel'
 // export * from './checkbox'
 // export * from './confirm'

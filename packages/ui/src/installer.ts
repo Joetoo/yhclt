@@ -6,9 +6,8 @@ import type { App } from 'vue'
 import { Badge } from './badge'
 import { TextEllipsis } from './text-ellipsis'
 import { Checkbox } from './checkbox'
-
+import { Empty } from './empty'
 // import { Dialog } from './Dialog'
-// import { Empty } from './Empty'
 // import { Breadcrumb, BreadcrumbItem } from './breadcrumb'
 // import { Button } from './button'
 // import { ImageView } from './image-view'
@@ -32,7 +31,7 @@ const components = [
   // CarouselItem,
   Checkbox,
   // Confirm,
-  // Empty,
+  Empty,
   TextEllipsis,
   // InputNumber,
   // Step,
