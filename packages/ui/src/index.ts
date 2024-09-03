@@ -6,11 +6,11 @@
 import { installer } from './installer'
 
 export * from './badge'
-// export * from './Empty'
 export * from './checkbox'
-// export * from './Dialog'
-// export * from './TextEllipsis'
+export * from './text-ellipsis'
 
+// export * from './Dialog'
+// export * from './Empty'
 // export * from './carousel'
 // export * from './checkbox'
 // export * from './confirm'

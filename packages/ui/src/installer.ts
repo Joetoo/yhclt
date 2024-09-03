@@ -4,11 +4,11 @@
 
 import type { App } from 'vue'
 import { Badge } from './badge'
-// import { Dialog } from './Dialog'
-// import { Empty } from './Empty'
-// import { TextEllipsis } from './TextEllipsis'
+import { TextEllipsis } from './text-ellipsis'
 import { Checkbox } from './checkbox'
 
+// import { Dialog } from './Dialog'
+// import { Empty } from './Empty'
 // import { Breadcrumb, BreadcrumbItem } from './breadcrumb'
 // import { Button } from './button'
 // import { ImageView } from './image-view'
@@ -33,7 +33,7 @@ const components = [
   Checkbox,
   // Confirm,
   // Empty,
-  // TextEllipsis,
+  TextEllipsis,
   // InputNumber,
   // Step,
   // StepItem,
