@@ -13,7 +13,6 @@ export const getMonthAndWeek = (dateStr: string) => {
   const firstDayOfWeek = (firstDayOfMonth.getDay() + 6) % 7 // 周一为 0，周日为 6
   const dayOfMonth = date.getDate()
   const week = Math.ceil((dayOfMonth + firstDayOfWeek) / 7)
-  console.log(month, week)
 
   return { month, week }
 }

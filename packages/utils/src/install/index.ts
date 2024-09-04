@@ -82,6 +82,13 @@ export function createNamespace(name: string): [string, (...mods: string[]) => s
   return [prefixedName, bem]
 }
 
+/**
+ * 挂载组件
+ *
+ * @param RootComponent 根组件
+ * @returns 返回一个对象，包含实例和卸载方法
+ * @template T 组件类型
+ */
 export function mountComponent<T>(RootComponent: Component) {
   const app = createApp(RootComponent)
   const root = document.createElement('div')

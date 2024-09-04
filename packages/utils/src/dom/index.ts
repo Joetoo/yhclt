@@ -11,6 +11,12 @@ export const textIsOverflow = (dom: HTMLElement) => {
   }
 }
 
+/**
+ * 隐藏HTML元素
+ *
+ * @param element 要隐藏的HTML元素
+ * @param removeFromFlow 是否从文档流中移除该元素。如果为true，则该元素的display样式会被设置为'none'；如果为false，则该元素的visibility样式会被设置为'hidden'。默认为false。
+ */
 export const hideElement = (element: HTMLElement, removeFromFlow = false) => {
   // eslint-disable-next-line ts/no-unused-expressions
   removeFromFlow ? (element.style.display = 'none') : (element.style.visibility = 'hidden')
