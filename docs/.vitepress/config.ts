@@ -7,8 +7,17 @@ export default defineConfig({
   title: '萤火虫MIT-FE',
   description: '前端物料库',
   srcDir: 'src',
+  head: [
+    [
+      'link',
+      {
+        rel: 'icon',
+        href: '/yhclt/bitbug_favicon.ico',
+      },
+    ],
+  ],
   themeConfig: {
-    // logo: '/logo.png',
+    logo: '/logo.svg',
     // 开启搜索
     search: { provider: 'local' },
     // https://vitepress.dev/reference/default-theme-config

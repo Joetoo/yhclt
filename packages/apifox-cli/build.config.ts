@@ -11,7 +11,7 @@ export default defineBuildConfig({
   sourcemap: enableOut,
   outDir: enableOut ? 'out' : 'dist',
   rollup: {
-    // emitCJS: true,
+    emitCJS: true,
     esbuild: { target: 'node18', minify: true },
   },
   // 排除的依赖

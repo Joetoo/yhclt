@@ -9,9 +9,9 @@ hero:
   name: '萤火虫MIT-FE'
   text: '前端物料库'
   tagline: 🎉包括UI组件、hooks、工具函数等
-  # image:
-  #   src: /favicon.svg
-  #   alt: 萤火虫MIT-FE
+  image:
+    src: /logo.png
+    alt: 萤火虫MIT-FE
   actions:
     - theme: brand
       text: 快速开始
@@ -30,4 +30,13 @@ features:
   - icon: 🛠️
     title: 按需引入
     details: 直接支持按需引入无需配置任何插件。
+  - title: Sku Components
+    icon: 🍧
+    details: Implementation front-end specifications are optional and disabled
+  - title: High Quality
+    icon: 🍽️
+    details: 20+ High quality components, 98%+ Unit test coverage, Support Tree Shaking
+  - title: Actual Combat
+    icon: 🍔
+    details: Do it yourself to make a vite based UI component library
 ---
