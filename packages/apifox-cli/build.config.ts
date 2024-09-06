@@ -12,7 +12,7 @@ export default defineBuildConfig({
   outDir: enableOut ? 'out' : 'dist',
   rollup: {
     emitCJS: true,
-    esbuild: { target: 'node18', minify: true },
+    esbuild: { target: 'node20', minify: true },
   },
   // 排除的依赖
   externals: ['commander', 'esbuild', 'fs-extra', 'unbuild', 'axios'],
